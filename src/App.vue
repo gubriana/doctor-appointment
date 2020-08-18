@@ -19,25 +19,15 @@
     </b-collapse>
   </b-navbar>
   <b-container>
-    <Login />
-    <DoctorAppointment />
-    <ReservarHora />
+    <router-view />
   </b-container>
 </div>
 </template>
 
 <script>
-import Login from './components/Login.vue'
-import DoctorAppointment from './components/DoctorAppointment.vue'
-import ReservarHora from './components/ReservarHora.vue'
 
 export default {
   name: 'App',
-  components: {
-    Login,
-    DoctorAppointment,
-    ReservarHora
-  }
 }
 </script>
 
