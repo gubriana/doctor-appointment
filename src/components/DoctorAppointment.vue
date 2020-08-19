@@ -18,10 +18,13 @@
               <b-button pill><b-icon icon="plus-circle"></b-icon></b-button>
             </b-col>
           </b-row>
-
+          
         </b-jumbotron>
       </b-col>
       <b-col>
+        <!-- <ul>
+            <li v-for="(patient, i) in patients" v-bind:key="i">{{ patient }}</li>
+        </ul> -->
         <b-table striped hover :items="items" class="text-secondary"></b-table>
       </b-col>
   </b-row>
@@ -29,6 +32,8 @@
 </template>
 
 <script>
+/* import { db } from '@/firebase';   */
+
 export default {
   name: 'DoctorAppointment',
   data() {
@@ -38,9 +43,15 @@ export default {
         { fecha: '21.08.20', hora: '14:25', nombre: 'Shaw', dolencia: 'Control', eliminar: 'x' },
         { fecha: '21.08.20', hora: '15:35', nombre: 'Wilson', dolencia: 'Dolor de estómago', eliminar: 'x' },
         { fecha: '21.08.20', hora: '16:45', nombre: 'Carney', dolencia: 'Control', eliminar: 'x' }
-      ]
+      ]/* ,
+      patients: [] */
     }
-  }
+  },
+  /* firestore() {
+      return {
+          patients: db.collection('patients')
+      }
+  } */
 }
 
 </script>
@@ -48,3 +59,18 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>
+
+
+export default {
+    name: "MyComponent",
+    data() {
+        return {
+            pets: []        // to start, the list is empty
+        }
+    },
+    firestore() {           // adding this key/function
+        return {
+            pets: db.collection('pets')
+        }
+    }
+}
